@@ -56,7 +56,7 @@ export default class FlatListSlider extends Component {
   componentDidUpdate(prevprops) {
     if (prevprops.data !== this.props.data) this.setState({ data: this.props.data });
   }
-  
+
   componentWillUnmount() {
     if (this.props.autoscroll) {
       this.stopAutoPlay();
@@ -155,6 +155,11 @@ export default class FlatListSlider extends Component {
   changeSliderListIndex = () => {
     if (this.props.animation) {
       LayoutAnimation.configureNext(LayoutAnimation.Presets.easeIn);
+    }
+    if (this.state.index < this.state.data.length-1) {
+      this.setState({ index: this.state.index + 1 });
+    }else{
+      this.setState({index:0})
     }
     this.setState({index: this.state.index + 1});
     this.slider.current.scrollToIndex({
