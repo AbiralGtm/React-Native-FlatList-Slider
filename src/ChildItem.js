@@ -1,5 +1,5 @@
 import React from 'react';
-import {TouchableOpacity, Image, StyleSheet} from 'react-native';
+import {TouchableOpacity, Image, StyleSheet,Text} from 'react-native';
 
 export default (ChildItem = ({
   item,
@@ -16,14 +16,20 @@ export default (ChildItem = ({
         style={[styles.image, style, {height: height}]}
         source={local ? item[imageKey] : {uri: item[imageKey]}}
       />
+      <Text style={styles.captionBox}>{item.title}</Text>
     </TouchableOpacity>
   );
 });
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+  },
   image: {
     height: 230,
     resizeMode: 'stretch',
   },
+  captionBox:{
+    padding:5,
+    width:Math.round(Dimensions.get('window').width) - 20
+  }
 });
