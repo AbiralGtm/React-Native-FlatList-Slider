@@ -1,5 +1,5 @@
 import React from 'react';
-import {TouchableOpacity, Image, StyleSheet,Text} from 'react-native';
+import {TouchableOpacity, Image, StyleSheet,Text,Dimensions} from 'react-native';
 
 export default (ChildItem = ({
   item,
